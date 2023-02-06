@@ -1,0 +1,42 @@
+.container-page{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.pokemon{
+  font-family: 'Pokemon Solid', sans-serif;
+                               
+}
+
+.buypoke{
+  background-color: gray;
+  border-radius: 20px;
+  border: none;
+  padding: 10px;
+  margin: 20px;
+  width: 30%;
+  cursor: pointer;
+  transition: .1s;
+}
+
+.buypoke:hover{
+  color: white;
+  background-color: #8B0000;
+}
+
+.form1{
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 17px;
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pokemon{
+  height: 100px;
+}
