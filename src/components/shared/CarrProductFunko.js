@@ -4,7 +4,7 @@ import Product from "./Product";
 import axios from "axios"
 import React, {useState, useEffect} from 'react'
 
-export default function Carruselv2() {
+export default function CarrProductFunko() {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
