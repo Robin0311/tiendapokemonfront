@@ -1,11 +1,13 @@
-import Carruselv2 from "../shared/Carruselv2";
-import Carruselv3 from "../shared/Carruselv3";
+import CarrProductCard from "../shared/CarrProductCard";
+import CarrProductFunko from "../shared/CarrProductFunko";
+import CarrProductGame from "../shared/CarrProductGame";
 
 const Catalogo = () => {
     return (
         <>
-    <Carruselv2 />
-    <Carruselv3 />
+    <CarrProductCard />
+    <CarrProductFunko />
+    <CarrProductGame />
     </>
 
     )
