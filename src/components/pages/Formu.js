@@ -1,44 +1,31 @@
-import Button from "react-bootstrap/Button";
-import {Form, handleSubmit, handleChange} from "react-bootstrap/Form";
+import React, { useContext } from 'react'
+import { UserContext } from '../context/userContext'
 
-const Formu = () => {
+export default function FormInput({ tipo }) {
+  const userCtx = useContext(UserContext)
+
+  const { handleChange } = userCtx
+
+  const options = {
+    name: { titulo: 'Nombre de usuario', type: 'text' },
+    email: { titulo: 'Direccion de E-Mail', type: 'mail' },
+    password: { titulo: 'Contraseña', type: 'password' },
+  }
+
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicName">
-        <Form.Label>Nombre</Form.Label>
-        <Form.Control
-          onChange={handleChange}
-          name="nameForm"
-          type="text"
-          placeholder="Escriba su Nombre"
+    <>
+      <label htmlFor={tipo}>{options[tipo].titulo}</label>
+      <div>
+        <input
+          id={tipo}
+          name={tipo}
+          type={options[tipo].type}
+          required
+          onChange={(e) => {
+            handleChange(e)
+          }}
         />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Correo</Form.Label>
-        <Form.Control
-          onChange={handleChange}
-          name="emailForm"
-          type="email"
-          placeholder="Correo"
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicDescription">
-        <Form.Label>Comentario</Form.Label>
-        <Form.Control
-          onChange={handleChange}
-          name="emailDescription"
-          type="text"
-          placeholder="Comentario"
-        />
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Enviar
-      </Button>
-    </Form>
-  );
-};
-
-export default Formu;
+      </div>
+    </>
+  )
+}

@@ -1,35 +1,31 @@
-import React from "react";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import React, { useContext } from 'react'
+import { UserContext } from '../context/userContext'
+import Formu from './Formu'
 
-const CrearUsuario = () => {
+export default function Register() {
+  const userCtx = useContext(UserContext)
+
+  const { registerUser, formData } = userCtx
+
+  const sendData = (event) => {
+    event.preventDefault()
+    registerUser(formData)
+  }
+
   return (
-    
-    <Form className="form1">
+    <div className='container'>
+      <h2>Crear cuenta</h2>
 
-      <Form.Group className="mb-3" controlId="formBasicName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="Name" placeholder="Enter Name" />
-      </Form.Group>
+      <form onSubmit={(e) => sendData(e)}>
+        <Formu tipo='name' />
+        <Formu tipo='email' />
+        <Formu tipo='password' />
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-
-      <Button variant="primary" type="submit" className="mx-auto d-block w-100">
-        Guardar Datos
-      </Button>
-      
-    </Form>
-  );
-};
-  
-  export default CrearUsuario;
-  
+        <button type='submit' className='btn btn-primary mt-3'>
+          Registrarme
+        </button>
+      </form>
+    </div>
+  )
+}
 
