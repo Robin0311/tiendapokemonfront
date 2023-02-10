@@ -42,7 +42,7 @@ export default function CarrProductGame() {
       type={item.type}
       price={item.price}
       description={item.description}
-      image={item.image}
+      photoimage={item.photoimage}
       
     />
     </div>
