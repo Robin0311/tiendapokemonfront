@@ -49,7 +49,7 @@ export default function CarrProductFunko() {
 
   return (
     <div className="App">
-      <h1>Carusel Funko</h1>
+      <h3>Carusel Funko</h3>
       <Carousel showDots={true} responsive={responsive}>
         {product}
       </Carousel>

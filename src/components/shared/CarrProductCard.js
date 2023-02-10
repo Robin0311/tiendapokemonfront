@@ -48,8 +48,8 @@ export default function CarrProductCard() {
   ));
 
   return (
-    <div className="App">
-      <h1>Carrusel Card</h1>
+    <div className="app">
+      <h3>Carrusel Card</h3>
       <Carousel showDots={true} responsive={responsive}>
         {product}
       </Carousel>

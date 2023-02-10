@@ -50,7 +50,7 @@ export default function CarrProductGame() {
 
   return (
     <div className="App" >
-      <h1>Carusel Funko</h1>
+      <h3>Carusel Game</h3>
       <Carousel showDots={true} responsive={responsive}>
         {product}
       </Carousel>

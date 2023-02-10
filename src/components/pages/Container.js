@@ -7,7 +7,6 @@ const Container = () => {
     <>
       <div className="container-page container">
         <Header />
-        {/* Insertar cada pagina dependiendo de la navegacion  body etx*/}
         <Outlet />
         <Footer />
       </div>
