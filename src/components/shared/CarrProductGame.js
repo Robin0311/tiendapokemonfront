@@ -35,8 +35,9 @@ export default function CarrProductGame() {
   }, [])
 
   const product = valores.map((item) => (
-    <div>
-    <Product
+    <div key={item._id}>
+    <Product 
+      
       name={item.name}
       type={item.type}
       price={item.price}
@@ -48,7 +49,7 @@ export default function CarrProductGame() {
   ));
 
   return (
-    <div className="App">
+    <div className="App" >
       <h1>Carusel Funko</h1>
       <Carousel showDots={true} responsive={responsive}>
         {product}

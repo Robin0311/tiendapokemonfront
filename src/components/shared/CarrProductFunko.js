@@ -35,7 +35,7 @@ export default function CarrProductFunko() {
   }, [])
 
   const product = valores.map((item) => (
-    <div>
+    <div key={item._id}>
     <Product
       name={item.name}
       type={item.type}
