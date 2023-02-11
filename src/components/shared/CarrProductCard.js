@@ -1,10 +1,18 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Product from "./Product";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import axios from "axios"
 import React, {useState, useEffect} from 'react'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-export default function CarrProductCard() {
+export const CarrProductCard = ({
+	allProducts,
+	setAllProducts,
+	countProducts,
+	setCountProducts,
+	total,
+	setTotal,
+}) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -25,34 +33,61 @@ export default function CarrProductCard() {
     },
   };
 
-  const [valores, setValores] = useState([])
-  useEffect(() => {
-    axios.get("https://tiendapokemon2back.onrender.com/productsg")
-      .then(res => {
-        const data = res.data
-        setValores(data.data)
-      })
-  }, [])
+  
 
-  const product = valores.map((item) => (
-    <div key={item._id}>
-    <Product
-      name={item.name}
-      type={item.type}
-      price={item.price}
-      description={item.description}
-      photoimage={item.photoimage}
-      
-    />
-    </div>
-  ));
+    const [valores, setValores] = useState([])
+    useEffect(() => {
+      axios.get("https://tiendapokemon2back.onrender.com/productsg")
+        .then(res => {
+          const data = res.data
+          setValores(data.data)
+        })
+    }, [])
+
+    const onAddProduct = product => {
+      if (allProducts.find(item => item.name === product.name)) {
+        const products = allProducts.map(item =>
+          item.name === product.name
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+        setTotal(total + product.price * product.quantity);
+        setCountProducts(countProducts + product.quantity);
+        return setAllProducts([...products]);
+      }
+  
+      setTotal(total + product.price * product.quantity);
+      setCountProducts(countProducts + product.quantity);
+      setAllProducts([...allProducts, product]);
+    };
 
   return (
-    <div className="app">
-      <h3>Carrusel Card</h3>
-      <Carousel showDots={true} responsive={responsive}>
-        {product}
-      </Carousel>
+
+    <>
+
+    <div>
+    <Carousel showDots={true} responsive={responsive}>
+    {valores.map((product) => (
+    
+    <Card className="p-10" style={{ width: "20rem" }} key={product._id}>
+      <Card.Img
+        className="product--image"
+        src={product.photoimage}
+        alt="product photoimage"
+      />
+      <Card.Body style={{ height: "10rem" }}>
+        <Card.Title>{product.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">
+          ${product.price}
+        </Card.Subtitle>
+        <Button variant="primary" onClick={() => onAddProduct(product)}>Add to Cart</Button>
+      </Card.Body>
+    </Card>
+    
+    ))}
+    </Carousel>
     </div>
+    </>
+    
   );
 }

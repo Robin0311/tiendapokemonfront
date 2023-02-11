@@ -1,61 +1,59 @@
 import Container from "react-bootstrap/Container";
-import { LinkContainer } from "react-router-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { LinkContainer } from "react-router-bootstrap";
 
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
 // import { Link } from 'react-router-dom'
-import { UserContext } from '../context/userContext'
+import { UserContext } from "../context/userContext";
 
-const Header = () => {
+const Header = (
+) => {
+  const ctx = useContext(UserContext);
 
-  const ctx = useContext(UserContext)
-
-  const { logout, authStatus } = ctx
+  const { logout, authStatus } = ctx;
 
   return (
-
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-    <Container className="pokemon">
-
-      <LinkContainer to="/">
-        <Navbar.Brand className="poketitulo">Pokeshop</Navbar.Brand>
-      </LinkContainer>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-
-        <Nav className="me-auto">
-          <LinkContainer to="/catalogoproductos">
-            <Nav.Link>Catalago de Productos</Nav.Link>
+      <Navbar bg="dark" variant="dark">
+        <Container className="pokemon">
+          <LinkContainer to="/">
+              <Navbar.Brand className="poketitulo">Pokeshop</Navbar.Brand>
           </LinkContainer>
-        </Nav>
-        
-        <Nav>
 
-
-        {authStatus ? (
-        <>
-          <LinkContainer to='/' onClick={logout}>
-          <Nav.Link>Cerrar sesión</Nav.Link>
-          </LinkContainer>
-        </>
-      ) : (
-        <>
-          <LinkContainer to='/crearusuario'>
-          <Nav.Link>Registro</Nav.Link>
+          <Nav className="me-auto">
+            <LinkContainer to="/catalogoproductos">
+              <Nav.Link>Catalago de Productos</Nav.Link>
             </LinkContainer>
+          </Nav>
 
-          <LinkContainer to='/iniciarsesion'>
-          <Nav.Link>Iniciar Sesion</Nav.Link>
-            </LinkContainer>
-        </>
-      )}
-   
-        </Nav>
-      </Navbar.Collapse>
-    </Container>
-  </Navbar>
+          <Nav className="me-auto">
+            {authStatus ? (
+              <>
+                <LinkContainer to="/" onClick={logout}>
+                  <Nav.Link>Cerrar sesión</Nav.Link>
+                </LinkContainer>
+              </>
+            ) : (
+              <>
+                <LinkContainer to="/crearusuario">
+                  <Nav.Link>Registro</Nav.Link>
+                </LinkContainer>
 
+                <LinkContainer to="/iniciarsesion">
+                  <Nav.Link>Login</Nav.Link>
+                </LinkContainer>
+              </>
+            )}
+
+                <LinkContainer to="/carrito">
+                  <Nav.Link>
+                  Carrrito
+                  </Nav.Link>
+                </LinkContainer>
+
+          </Nav>
+        </Container>
+      </Navbar>
   );
 };
 
