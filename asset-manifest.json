@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/tiendapokemonfront/static/css/main.20766dc3.css",
-    "main.js": "/tiendapokemonfront/static/js/main.722fcc78.js",
+    "main.js": "/tiendapokemonfront/static/js/main.72798c8f.js",
     "static/js/787.24c2a892.chunk.js": "/tiendapokemonfront/static/js/787.24c2a892.chunk.js",
     "static/media/revicons.eot": "/tiendapokemonfront/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/tiendapokemonfront/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/tiendapokemonfront/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/tiendapokemonfront/index.html",
     "main.20766dc3.css.map": "/tiendapokemonfront/static/css/main.20766dc3.css.map",
-    "main.722fcc78.js.map": "/tiendapokemonfront/static/js/main.722fcc78.js.map",
+    "main.72798c8f.js.map": "/tiendapokemonfront/static/js/main.72798c8f.js.map",
     "787.24c2a892.chunk.js.map": "/tiendapokemonfront/static/js/787.24c2a892.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.20766dc3.css",
-    "static/js/main.722fcc78.js"
+    "static/js/main.72798c8f.js"
   ]
 }
